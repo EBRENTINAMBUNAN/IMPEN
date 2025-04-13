@@ -6,6 +6,8 @@ cliInput.addEventListener("keydown", function (event) {
         const command = cliInput.value.trim();
         printOutput(command);
         cliInput.value = "";
+        cliInput.focus();
+
     }
 });
 
@@ -63,6 +65,7 @@ function printOutput(command) {
 - <code>hack</code>: Mode Elite 🔥<br>
 - <code>motivation</code>: Motivasi ala mager<br>
 - <code>clear</code>: Bersihkan layar<br>
+- <code>Copyright</code>: Copyright<br>
 - <code>help</code>: Lihat menu ini
 `;
             break;
@@ -94,6 +97,9 @@ function printOutput(command) {
             break;
         case "motivation":
             response.innerHTML = `🚀 Motivasi Hari Ini:<br><i>"Bermimpilah setinggi langit, tapi rebahanlah selama mungkin."</i>`;
+            break;
+        case "Copyright":
+            response.innerHTML = `by EBREN TINAMBUNAN | YT: bendev403 | IG : ebren_tinambunan | FB : Ebren Tinambunan"</i>`;
             break;
         case "clear":
             output.innerHTML = "";
