@@ -5,7 +5,7 @@ FROM python:3.11
 WORKDIR /app
 
 # Copy semua file ke container
-COPY . /app
+COPY . /app/
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
