@@ -1,6 +1,6 @@
 FROM python:3.4
 
-RUN apt-get update \
+RUN sudo apt-get update \
 	&& apt-get install -y --no-install-recommends \
 		postgresql-client \
 	&& rm -rf /var/lib/apt/lists/*
