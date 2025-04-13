@@ -1,17 +1,14 @@
-# Gunakan image Python sebagai base
-FROM python:3.11
+FROM python:3.4
 
-# Set working directory
-WORKDIR /app
+RUN apt-get update \
+	&& apt-get install -y --no-install-recommends \
+		postgresql-client \
+	&& rm -rf /var/lib/apt/lists/*
 
-# Copy semua file ke container
-COPY . /app
+WORKDIR /usr/src/app
+COPY requirements.txt ./
+RUN pip install -r requirements.txt
+COPY . .
 
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Buka port default Django
 EXPOSE 8000
-
-# Jalankan server Django
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
